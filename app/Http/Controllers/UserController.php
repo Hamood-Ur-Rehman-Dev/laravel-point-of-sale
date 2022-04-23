@@ -73,4 +73,11 @@ class UserController extends Controller
         }
         return redirect()->route('users.index')->with('success', 'Success, Employee have been updated.');
     }
+
+    public function destroy(User $user){
+        $user->delete();
+        return response()->json([
+            'success' => true
+        ], 200);
+    }
 }
